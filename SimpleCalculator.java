@@ -13,7 +13,7 @@ public class SimpleCalculator {
 	
 	public void add(double d) {
 		
-		currentNumber = currentNumber + d;
+		currentNumber+= d;
 		
 	}
 	
