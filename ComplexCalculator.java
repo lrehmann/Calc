@@ -63,7 +63,11 @@ public class ComplexCalculator {
 			if (d%c==0){ return 0; }
 			c=c-1;
 		}
-		return 1;
+		if (d>1){
+			return 1;
+		}else{
+			return 0;
+		}
 	}
 	
 }
