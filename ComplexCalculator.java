@@ -1,3 +1,4 @@
+//Calculator by Luke Rehmann
 package calc;
 
 public class ComplexCalculator {
@@ -11,46 +12,58 @@ public class ComplexCalculator {
 	
 	// adds d to current number
 	public void add(double d) {
-		currentNumber = currentNumber + d;
+		currentNumber += d;
 	}
 	
 	public void subtract(double d){
-		currentNumber = currentNumber - d;
+		currentNumber-= d;
 	}
 		
 	public void multiply(double d){
-		currentNumber = currentNumber * d;
+		currentNumber *= d;
 	}
 		
 	public void divide(double d){
-		currentNumber = currentNumber / d;	
+		currentNumber/= d;	
 	}
 		
-	public void clear(){
+	public void clear(double d){
 		currentNumber = 0;
 	}
 		
 	public void power(double d){
 		double c=currentNumber;
-		while (d>1){
-			currentNumber = currentNumber * c;
-			d=d-1;
+		if (d==0){
+			currentNumber=1;
+		}else if(d<0){
+			while (d<0){
+				currentNumber /= c;
+				d=d+1;
+			}
+		}else{
+			while (d>0){
+				currentNumber *= c;
+				d=d-1;
+			}
 		}
+
 	}
 		
 	public double getCurrentNumber() {
 		return currentNumber;
 	}
 	
-	//////////////////////////////////////////////////
-	// EXTRA FUNCTIONS - not needed for full credit //
+	public boolean isEven(double d){
+		return !(d%2);
+	}
 	
-	// isEven()
-	// TODO returns true is current number is even, false otherwise
-	
-	// isPrime()
-	// TODO returns true if current number is a prime number, false otherwise
-	
-	////////////////////////////////////////////////////
+	public boolean isPrime(double d){
+		double c=d;
+		while (c>1){
+			if (d%c==0){ return 0; }
+			c=c-1;
+		}
+		return 1;
+	}
 	
 }
